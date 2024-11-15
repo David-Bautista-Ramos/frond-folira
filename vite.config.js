@@ -10,6 +10,7 @@ export default defineConfig({
 			"/api": {
 				target: "https://backendfoli-production.up.railway.app",
 				changeOrigin: true,
+        
 			},
 		},
   },
