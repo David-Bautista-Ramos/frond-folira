@@ -10,6 +10,7 @@ import ModalActualizarReseña from "./ModalActualizarReseña";
 import ModalEliminarResena from "./ModalEliminarResena";
 import FiltrarResenaEstado from "../../components/common/FiltrarResenaEstado";
 import GestionSkeleton from "../../components/skeletons/GestionSkeleton";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionResenas() {
     const [isActivarModalOpen, setIsActivarModalOpen] = useState(false);
@@ -33,7 +34,7 @@ function GestionResenas() {
     const obtenerResenas = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch("/api/resenas/getresenas", {
+            const response = await fetch(`${API_URL}/api/resenas/getresenas`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -114,14 +115,14 @@ useEffect(() => {
             let response;
     
             if (filter === "Activo") {
-                response = await fetch("/api/resenas/getresenasact", {
+                response = await fetch(`${API_URL}/api/resenas/getresenasact`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                     },
                 });
             } else if (filter === "Inactivo") {
-                response = await fetch("/api/resenas/getresenasdes", {
+                response = await fetch(`${API_URL}/api/resenas/getresenasdes`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",

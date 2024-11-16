@@ -10,6 +10,7 @@ import ModalActualizarDenuncia from "./ModalActualizarDenuncia";
 import ModalEliminarDenuncia from "./ModalEliminarDenuncia";
 import FiltroTipoModal from "./ModalTipoDenuncia";
 import { formatMemberSinceDate2 } from "../../utils/date/index2";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 function GestionDenuncia() {
@@ -34,7 +35,7 @@ function GestionDenuncia() {
   const obtenerDenuncias = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/denuncias/denuncia", {
+      const response = await fetch(`${API_URL}/api/denuncias/denuncia`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -106,12 +107,12 @@ function GestionDenuncia() {
     try {
       let response;
       if (filter === "Activo") {
-        response = await fetch("/api/denuncias/denunciaact", {
+        response = await fetch(`${API_URL}/api/denuncias/denunciaact`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
       } else if (filter === "Inactivo") {
-        response = await fetch("/api/denuncias/denunciades", {
+        response = await fetch(`${API_URL}/api/denuncias/denunciades`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });

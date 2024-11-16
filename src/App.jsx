@@ -35,6 +35,7 @@ import { createContext, useEffect,  useRef  } from 'react';
 
 // Crear un contexto para compartir el tiempo en pantalla
 export const TimeSpentContext = createContext();
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function App() {
   
@@ -45,7 +46,7 @@ function App() {
     queryKey: ['authUser'],
     queryFn: async () => {
       try {
-        const res = await fetch('/api/auth/me');
+        const res = await fetch(`${API_URL}/api/auth/me`);
         const data = await res.json();
         if (data.error) return null;
         if (!res.ok) {

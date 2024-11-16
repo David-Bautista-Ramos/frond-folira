@@ -3,6 +3,7 @@
   import useUpdateNotificacion from "../../hooks/useUpdateNotificacion";
   import toast from "react-hot-toast";
   import Select from 'react-select';
+  const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 function ModalActualizarNotificacion({ isOpen, onClose, NotificacionId, obtenerNotificaciones, token }) {
@@ -25,7 +26,7 @@ function ModalActualizarNotificacion({ isOpen, onClose, NotificacionId, obtenerN
   const fetchNotificacionDetalles = useCallback(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/notifications/notifiid/${NotificacionId}`, {
+        const response = await fetch(`${API_URL}/api/notifications/notifiid/${NotificacionId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -57,7 +58,7 @@ function ModalActualizarNotificacion({ isOpen, onClose, NotificacionId, obtenerN
   useEffect(() => {
     if (isOpen) {
       setLoading(true);
-      fetch('/api/notifications/allUsers')
+      fetch(`${API_URL}/api/notifications/allUsers`)
         .then((response) => {
           if (!response.ok) throw new Error("Failed to fetch users");
           return response.json();

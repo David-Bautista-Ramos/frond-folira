@@ -17,6 +17,7 @@ import {
 import banner_autor from "../../assets/img/banner_gestion_autores.png"; 
 import GestionSkeleton from "../../components/skeletons/GestionSkeleton";
 import ModalEliminarAutor from "./ModalEliminarAutor";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionAutor() {
   const [autores, setAutores] = useState([]);
@@ -37,7 +38,7 @@ function GestionAutor() {
   const obtenerAutores = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/autror/autores", {
+      const response = await fetch(`${API_URL}/api/autror/autores`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -114,10 +115,10 @@ function GestionAutor() {
       let url;
       switch (filter) {
         case "Activo":
-          url = "/api/autror/autoresact";
+          url = `${API_URL}/api/autror/autoresact`;
           break;
         case "Inactivo":
-          url = "/api/autror/autoresdes";
+          url = `${API_URL}/api/autror/autoresdes`;
           break;
         case "Restaurar":
           setFilteredAutores(autores);

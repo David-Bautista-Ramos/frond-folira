@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const useUpdatePublicacion = (publicacionId) => {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ const useUpdatePublicacion = (publicacionId) => {
   const { mutateAsync: updatePost, isPending: isUpdatingPost } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/posts/post/${publicacionId}`, {
+        const res = await fetch(`${API_URL}/api/posts/post/${publicacionId}`, {
           method: "PUT", // Asegúrate de que es POST o PUT
           headers: {
             "Content-Type": "application/json",

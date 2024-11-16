@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import useCreatePublicacion from "../../hooks/useCreatePost";
 import toast from "react-hot-toast";
 import Select from "react-select"
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalCrearPublicacion({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -27,8 +28,8 @@ function ModalCrearPublicacion({ isOpen, onClose }) {
     const fetchData = async () => {
       try {
         const [usuariosResponse, comunidadesResponse] = await Promise.all([
-          fetch("/api/users/allUsers"),
-          fetch("/api/comunidad/comunidad"),
+          fetch(`${API_URL}/api/users/allUsers`),
+          fetch(`${API_URL}/api/comunidad/comunidad`),
         ]);
 
         if (!usuariosResponse.ok || !comunidadesResponse.ok) {

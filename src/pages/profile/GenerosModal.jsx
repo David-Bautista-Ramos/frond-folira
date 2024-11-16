@@ -1,4 +1,5 @@
 import{ useEffect, useState } from 'react';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const GenerosModal = ({ isOpen, onClose }) => {
     const [generos, setGeneros] = useState([]);
@@ -8,7 +9,7 @@ const GenerosModal = ({ isOpen, onClose }) => {
     useEffect(() => {
         const fetchGeneros = async () => {
             try {
-                const response = await fetch('/api/geneLiter/generosactuser'); // Reemplaza con la URL de tu API
+                const response = await fetch(`${API_URL}/api/geneLiter/generosactuser`); 
                 if (!response.ok) {
                     throw new Error('Error al cargar los géneros');
                 }

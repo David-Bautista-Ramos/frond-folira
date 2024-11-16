@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarUsuario({ isOpen, onClose, userId, obtenerUsuarios }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalActivarUsuario({ isOpen, onClose, userId, obtenerUsuarios }) {
   const handleActivarUsuario = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/users/estados/${userId}`, {
+      const response = await fetch(`${API_URL}/api/users/estados/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

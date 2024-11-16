@@ -18,6 +18,7 @@ import {
   BiTrash,
 } from "react-icons/bi";
 import GestionSkeleton from "../../components/skeletons/GestionSkeleton";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionComunidad() {
   const [comunidad, setComunidad] = useState([]); // Corregido: useState en vez de useSatate
@@ -41,7 +42,7 @@ function GestionComunidad() {
   const obtenerComunidades = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/comunidad/comunidad", {
+      const response = await fetch(`${API_URL}/api/comunidad/comunidad`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +123,7 @@ function GestionComunidad() {
 
       if (filter === "Activo") {
         // Obtener autores activos
-        response = await fetch("/api/comunidad/comunidadact", {
+        response = await fetch(`${API_URL}/api/comunidad/comunidadact`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -130,7 +131,7 @@ function GestionComunidad() {
         });
       } else if (filter === "Inactivo") {
         // Obtener autores inactivos
-        response = await fetch("/api/comunidad/comunidaddes", {
+        response = await fetch(`${API_URL}/api/comunidad/comunidaddes`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

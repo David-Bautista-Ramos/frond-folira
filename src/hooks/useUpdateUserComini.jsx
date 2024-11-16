@@ -1,6 +1,7 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const useUpdateComunidad = (comunidadId) => {
   const queryClient = useQueryClient();
@@ -8,7 +9,7 @@ const useUpdateComunidad = (comunidadId) => {
   const { mutateAsync: updatecomunidad, isPending: isUpdatingcomunidad } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/comunidad/putcomunidad/${comunidadId}`, {
+        const res = await fetch(`${API_URL}/api/comunidad/putcomunidad/${comunidadId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

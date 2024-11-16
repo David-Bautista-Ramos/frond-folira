@@ -6,6 +6,7 @@ import ModalActivarGenero from './ModalActivarGenero';
 import ModalEliminarGenero from './ModalEliminarGenero'; // Importar el modal de eliminación
 import GestionSkeleton from '../../components/skeletons/GestionSkeleton';
 import { BiEdit, BiPowerOff, BiReset, BiTrash } from 'react-icons/bi';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalGeneros({ isOpen, onClose }) {
 
@@ -23,7 +24,7 @@ function ModalGeneros({ isOpen, onClose }) {
   const obtenerGenerosLiterarios = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/geneLiter/getgeneros", {
+      const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

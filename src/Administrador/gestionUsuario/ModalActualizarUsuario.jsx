@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import useUpdateUsers from "../../hooks/useUpdateUsers";
 import Select from "react-select"; // Importa react-select
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 const ModalActualizarUsuario = ({ isOpen, onClose, userId, token }) => {
@@ -114,7 +115,7 @@ const ModalActualizarUsuario = ({ isOpen, onClose, userId, token }) => {
         if (isOpen && userId) {
             const fetchUserData = async () => {
                 try {
-                    const response = await fetch(`/api/users/user/${userId}`, {
+                    const response = await fetch(`${API_URL}/api/users/user/${userId}`, {
                         method: 'GET',
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -147,7 +148,7 @@ const ModalActualizarUsuario = ({ isOpen, onClose, userId, token }) => {
     useEffect(() => {
         const fetchGeneros = async () => {
             try {
-                const response = await fetch('/api/geneLiter/getgeneros', {
+                const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`,

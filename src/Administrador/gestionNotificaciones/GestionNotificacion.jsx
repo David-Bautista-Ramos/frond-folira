@@ -11,6 +11,7 @@ import ModalEliminarNotificacion from "./ModalEliminarNotificacion";
 import ModalFiltroEstado from "../../components/common/ModalListarDenuncia";
 import ModalCrearNotificacion from '../gestionNotificaciones/ModalCrearNotificacion';
 import ModalTipoNotificacion from "./ModalTipoNotificacion";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionNotificacion() {
   const [notificaciones, setNotificaciones] = useState([]);
@@ -86,7 +87,7 @@ function GestionNotificacion() {
 
   const obtenerNotificaciones = async () => {
     try {
-      const response = await fetch("/api/notifications/notifi", {
+      const response = await fetch(`${API_URL}/api/notifications/notifi`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -110,12 +111,12 @@ function GestionNotificacion() {
   try {
     let response;
     if (filter === "Activo") {
-      response = await fetch("/api/notifications/notifinoleact", {
+      response = await fetch(`${API_URL}/api/notifications/notifinoleact`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
     } else if (filter === "Inactivo") {
-      response = await fetch("/api/notifications/notifinoledes", {
+      response = await fetch(`${API_URL}/api/notifications/notifinoledes`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

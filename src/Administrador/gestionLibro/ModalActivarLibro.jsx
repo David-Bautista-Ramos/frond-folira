@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarLibro({ isOpen, onClose, libroId, obetnerLibros }) {
 
@@ -9,7 +10,7 @@ function ModalActivarLibro({ isOpen, onClose, libroId, obetnerLibros }) {
   const handleOpenActivarModal = async () => {
     setLoading(true);  
     try {
-      const response = await fetch(`/api/libro/actlibro/${libroId}`, {
+      const response = await fetch(`${API_URL}/api/libro/actlibro/${libroId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

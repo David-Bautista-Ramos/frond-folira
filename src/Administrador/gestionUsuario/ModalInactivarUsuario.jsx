@@ -1,4 +1,5 @@
 import { useState } from 'react';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalInactivarUsuario({ isOpen, onClose, userId, obtenerUsuarios }) {
   const [loading, setLoading] = useState(false); // Estado para mostrar el loading
@@ -10,7 +11,7 @@ function ModalInactivarUsuario({ isOpen, onClose, userId, obtenerUsuarios }) {
     setLoading(true);
     setError(null); // Limpiar errores previos
     try {
-      const response = await fetch(`/api/users/estados/${userId}`, {
+      const response = await fetch(`${API_URL}/api/users/estados/${userId}`, {
         method: 'POST', // Cambia el método según sea necesario (PUT/POST)
         headers: {
           'Content-Type': 'application/json',

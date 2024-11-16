@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarComunidad({ isOpen, onClose, comunidadId, obtenerComunidades }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarComunidad({ isOpen, onClose, comunidadId, obtenerComunidad
   const handleOpenDeleteModal = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/comunidad/comunidad/${comunidadId}`, {
+      const response = await fetch(`${API_URL}/api/comunidad/comunidad/${comunidadId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function useCreateAutor() {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ function useCreateAutor() {
   const { mutateAsync: createAutor, isPending: isCreatingAutor } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/autror/autores`, {
+        const res = await fetch(`${API_URL}/api/autror/autores`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import useUpdateLibro from "../../hooks/useUpdateLibro";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActualizarLibro({ isOpen, onClose, libroId, obtenerLibros, token }) {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ function ModalActualizarLibro({ isOpen, onClose, libroId, obtenerLibros, token }
   const fetchLibroDetalles = useCallback(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/libro/getlibros/${libroId}`, {
+        const response = await fetch(`${API_URL}/api/libro/getlibros/${libroId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,7 +124,7 @@ function ModalActualizarLibro({ isOpen, onClose, libroId, obtenerLibros, token }
   useEffect(() => {
     const fetchGeneros = async () => {
       try {
-        const response = await fetch("/api/geneLiter/getgeneros", {
+        const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -141,7 +142,7 @@ function ModalActualizarLibro({ isOpen, onClose, libroId, obtenerLibros, token }
   useEffect(() => {
     const fetchAutores = async () => {
       try {
-        const response = await fetch("/api/autror/autores", {
+        const response = await fetch(`${API_URL}/api/autror/autores`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

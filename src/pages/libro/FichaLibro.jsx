@@ -4,6 +4,7 @@ import { BsStarFill, BsStar, BsEye, BsEyeSlash, BsArrowLeft } from 'react-icons/
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash } from 'react-icons/fa';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const FichaTecnicaLibro = () => {
   const { id: libroId } = useParams(); // Obtiene el id desde la URL
@@ -23,7 +24,7 @@ const FichaTecnicaLibro = () => {
     // Función para obtener los detalles del libro por id
     const fetchLibro = async () => {
       try {
-        const response = await fetch(`/api/libro/getlibros/${libroId}`); // Cambia la ruta según tu API
+        const response = await fetch(`${API_URL}/api/libro/getlibros/${libroId}`); // Cambia la ruta según tu API
         if (!response.ok) {
           throw new Error('Error al obtener el libro');
         }
@@ -38,7 +39,7 @@ const FichaTecnicaLibro = () => {
     // Función para obtener las reseñas del libro
   const fetchReseñas = async () => {
     try {
-      const response = await fetch(`/api/resenas/librosRes/${libroId}`); // Cambia la ruta según tu API
+      const response = await fetch(`${API_URL}/api/resenas/librosRes/${libroId}`); // Cambia la ruta según tu API
       if (!response.ok) {
         throw new Error('Error al obtener las reseñas');
       }
@@ -117,7 +118,7 @@ const FichaTecnicaLibro = () => {
   
     try {
       // Realiza la solicitud POST para crear una nueva reseña
-      const response = await fetch('/api/resenas/resenas', {
+      const response = await fetch(`${API_URL}/api/resenas/resenas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,7 +145,7 @@ const FichaTecnicaLibro = () => {
   const fetchReseñas = async () => {
     setLoadingReseñas(true);
     try {
-      const response = await fetch(`/api/resenas/librosRes/${libroId}`);
+      const response = await fetch(`${API_URL}/api/resenas/librosRes/${libroId}`);
       if (!response.ok) {
         throw new Error('Error al obtener las reseñas');
       }
@@ -160,7 +161,7 @@ const FichaTecnicaLibro = () => {
    // Función para eliminar una reseña
    const handleDeleteReseña = async (id) => {
     try {
-      const response = await fetch(`/api/resenas/deleteresenas/${id}`, {
+      const response = await fetch(`${API_URL}/api/resenas/deleteresenas/${id}`, {
         method: 'DELETE',
       });
 

@@ -36,12 +36,13 @@ function GestionLibro() {
   const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
   const [currentPage, setCurrentPage] = useState(1); // Página actual
   const [totalPages, setTotalPages] = useState(1); // Número total de páginas
+  const API_URL = "https://backendfoli-production.up.railway.app"; 
 
   // Método para obtener todos los libros
   const obtenerLibros = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/api/libro/getlibros", {
+      const response = await fetch(`${API_URL}/api/libro/getlibros`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -121,14 +122,14 @@ function GestionLibro() {
       let response;
 
       if (filter === "Activo") {
-        response = await fetch("/api/libro/getlibrosact", {
+        response = await fetch(`${API_URL}/api/libro/getlibrosact`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
       } else if (filter === "Inactivo") {
-        response = await fetch("/api/libro/getlibrosdes", {
+        response = await fetch(`${API_URL}/api/libro/getlibrosdes`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

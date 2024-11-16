@@ -18,6 +18,7 @@ import { MdEdit } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { formatMemberSinceDate } from "../../utils/date";
 import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ProfilePage = () => {
   const [fotoPerfilBan, setfotoPerfilBan] = useState(null);
@@ -41,7 +42,7 @@ const ProfilePage = () => {
     queryKey: ["userProfile", nombre],
     queryFn: async () => {
       try {
-        const res = await fetch(`/api/users/profile/${nombre}`);
+        const res = await fetch(`${API_URL}/api/users/profile/${nombre}`);
         const data = await res.json();
         if (!res.ok) {
           throw new Error(data.error || "algo salió mal");

@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarNotificacion({ isOpen, onClose, NotificacionId, obtenerNotificaciones }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarNotificacion({ isOpen, onClose, NotificacionId, obtenerNot
     const handleDelete = async () => {
       setLoading(true);
     try {
-      const response = await fetch(`/api/notifications/notifi/${NotificacionId}`, {
+      const response = await fetch(`${API_URL}/api/notifications/notifi/${NotificacionId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import EmojiPicker from 'emoji-picker-react'; // Importar EmojiPicker
 import toast from 'react-hot-toast';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const CreatePost = () => {
 	const [contenido, setContenido] = useState("");
@@ -18,7 +19,7 @@ const CreatePost = () => {
 	const { mutate: CreatePost, isPending, isError, error } = useMutation({
 		mutationFn: async ({ contenido, fotoPublicacion }) => {
 			try {
-				const res = await fetch("/api/posts/create", {
+				const res = await fetch(`${API_URL}/api/posts/create`, {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ contenido, fotoPublicacion }),

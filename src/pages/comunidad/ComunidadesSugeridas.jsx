@@ -5,6 +5,7 @@ import ModalCrearNuevaComunidad from './ModalCrearNuevaComunidad.jsx';
 import toast from 'react-hot-toast';
 // import { FaPlus } from 'react-icons/fa';
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 // Componente para cada tarjeta de comunidad
@@ -53,7 +54,7 @@ const ComunidadesSugeridas = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`/api/comunidad/comnoMiem/${userId}`);
+      const response = await fetch(`${API_URL}/api/comunidad/comnoMiem/${userId}`);
       if (!response.ok) throw new Error('Error al obtener las comunidades');
       const data = await response.json();
       setComunidades(data);
@@ -72,7 +73,7 @@ const ComunidadesSugeridas = () => {
     const userId = authUser._id;
 
     try {
-      const response = await fetch('/api/comunidad/unircomunidad', {
+      const response = await fetch(`${API_URL}/api/comunidad/unircomunidad`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, comunidadId }),

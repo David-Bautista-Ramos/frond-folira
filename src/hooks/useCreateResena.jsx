@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function useCreateResena() {
     const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ function useCreateResena() {
     const { mutateAsync: createResena, isLoading: isCreatingResena } = useMutation({
         mutationFn: async (formData) => {
             try {
-                const res = await fetch(`/api/resenas/resenas`, {
+                const res = await fetch(`${API_URL}/api/resenas/resenas`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

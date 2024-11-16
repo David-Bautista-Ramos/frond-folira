@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarDenuncia({ isOpen, onClose, denunciasId, obtenerDenuncias }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarDenuncia({ isOpen, onClose, denunciasId, obtenerDenuncias 
     const handleDelete = async () => {
       setLoading(true);
     try {
-      const response = await fetch(`/api/denuncias/denuncia/${denunciasId}`, {
+      const response = await fetch(`${API_URL}/api/denuncias/denuncia/${denunciasId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

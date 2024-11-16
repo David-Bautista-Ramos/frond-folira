@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import useCreateLibro from "../../hooks/useCreateLibro";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalCrearLibro({ isOpen, onClose, token }) {
   const [formData, setFormData] = useState({
@@ -89,7 +90,7 @@ function ModalCrearLibro({ isOpen, onClose, token }) {
   useEffect(() => {
     const fetchGeneros = async () => {
       try {
-        const response = await fetch("/api/geneLiter/getgeneros", {
+        const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -107,7 +108,7 @@ function ModalCrearLibro({ isOpen, onClose, token }) {
   useEffect(() => {
     const fetchAutores = async () => {
       try {
-        const response = await fetch("/api/autror/autores", {
+        const response = await fetch(`${API_URL}/api/autror/autores`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalInactivarLibro({ isOpen, onClose, libroId, obetnerLibros }) {
   const [loading, setLoading] = useState(false); // Estado para mostrar el loading
@@ -10,7 +11,7 @@ function ModalInactivarLibro({ isOpen, onClose, libroId, obetnerLibros }) {
     setLoading(true);
     setError(null); // Limpiar errores previos
     try {
-      const response = await fetch(`/api/libro/deslibro/${libroId}`, {
+      const response = await fetch(`${API_URL}/api/libro/deslibro/${libroId}`, {
         method: 'PUT', // Cambia el método según sea necesario (PUT/POST)
         headers: {
           'Content-Type': 'application/json',

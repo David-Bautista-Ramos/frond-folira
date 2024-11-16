@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import useCreateComunidad from '../../hooks/useCreateComunidad';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalCrearNuevaComunidad = ({ isOpen, onClose, token, userId, obtenerComunidades }) => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const ModalCrearNuevaComunidad = ({ isOpen, onClose, token, userId, obtenerComun
   useEffect(() => {
     const fetchGeneros = async () => {
       try {
-        const response = await fetch('/api/geneLiter/generosactuser', {
+        const response = await fetch(`${API_URL}/api/geneLiter/generosactuser`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

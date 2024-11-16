@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarLibro({ isOpen, onClose, libroId, obtenerLibros }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarLibro({ isOpen, onClose, libroId, obtenerLibros }) {
     const handleDelete = async () => {
       setLoading(true);
     try {
-      const response = await fetch(`/api/libro/deletelibro/${libroId}`, {
+      const response = await fetch(`${API_URL}/api/libro/deletelibro/${libroId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

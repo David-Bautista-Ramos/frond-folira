@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useFollow from "../../hooks/userFollow";
 import LoadingSpinner from "./LoadingSpinner";
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const RightPanel = () => {
   const [pendingUserId, setPendingUserId] = useState(null); // Estado para el usuario en proceso de seguimiento
@@ -12,7 +13,7 @@ const RightPanel = () => {
     queryKey: ["suggestedUsers"],
     queryFn: async () => {
       try {
-        const res = await fetch("/api/users/sugerencias");
+        const res = await fetch(`${API_URL}/api/users/sugerencias`);
         const data = await res.json();
         if (!res.ok) {
           throw new Error(data.error || "¡Algo salió mal!");

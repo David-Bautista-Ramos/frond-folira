@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const useUpdateUsers = (userId) => {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ const useUpdateUsers = (userId) => {
   const { mutateAsync: updateUsers, isPending: isUpdatingUsers } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/users/upadateUsers/${userId}`, 
+        const res = await fetch(`${API_URL}/api/users/upadateUsers/${userId}`, 
           {
           method: "POST",
           headers: {

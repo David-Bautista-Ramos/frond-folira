@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'; 
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const AmigoSugeridos = () => {
     const [amigos, setAmigos] = useState([]); // Estado para manejar los amigos
@@ -13,7 +14,7 @@ const AmigoSugeridos = () => {
     useEffect(() => {
         const fetchAmigos = async () => {
             try {
-                const response = await fetch('/api/users/useractamg'); 
+                const response = await fetch(`${API_URL}/api/users/useractamg`); 
                 if (!response.ok) {
                     throw new Error('Hubo un error al obtener los amigos');
                 }

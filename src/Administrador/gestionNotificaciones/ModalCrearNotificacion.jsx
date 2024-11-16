@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useCreateNotificacion from '../../hooks/useCreateNotificacion.jsx';
 import Select from 'react-select';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalCrearNotificacion = ({ isOpen, onClose }) => {
   const [notificationDetails, setNotificationDetails] = useState({
@@ -18,7 +19,7 @@ const ModalCrearNotificacion = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       setLoading(true);
-      fetch('/api/notifications/allUsers')
+      fetch(`${API_URL}/api/notifications/allUsers`)
         .then((response) => {
           if (!response.ok) throw new Error("Failed to fetch users");
           return response.json();

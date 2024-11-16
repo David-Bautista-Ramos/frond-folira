@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function useCreateInsignia() {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ function useCreateInsignia() {
   const { mutateAsync: createInisgnia, isPending: isCreatingInisgnia } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/insignias/insignias`, {
+        const res = await fetch(`${API_URL}/api/insignias/insignias`, {
           method: "POST",
           body: formData, // Send FormData directly
         });

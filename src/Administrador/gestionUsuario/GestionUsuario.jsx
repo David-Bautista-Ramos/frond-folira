@@ -17,6 +17,7 @@ import banner_usuario from "../../assets/img/banners_gestion_usuario.png";
 import FiltrarUsuarioEstado from "../../components/common/FiltrarUsuarioEstado";
 import GestionSkeleton from "../../components/skeletons/GestionSkeleton"; // Importar el skeleton
 import ModalEliminarUsuario from "./ModalEliminarUsuario";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionUsuario() {
   const [usuarios, setUsuarios] = useState([]); // Estado para todos los usuarios
@@ -38,7 +39,7 @@ function GestionUsuario() {
   const obtenerUsuarios = async () => {
     setIsLoading(true); // Inicia la carga
     try {
-      const response = await fetch("/api/users/allUsers", {
+      const response = await fetch(`${API_URL}/api/users/allUsers`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -117,14 +118,14 @@ function GestionUsuario() {
       let response;
 
       if (filter === "Activo") {
-        response = await fetch("/api/users/useract", {
+        response = await fetch(`${API_URL}/api/users/useract`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
       } else if (filter === "Inactivo") {
-        response = await fetch("/api/users/userdes", {
+        response = await fetch(`${API_URL}/api/users/userdes`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterarios }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterari
     const handleDelete = async () => {
       setLoading(true);
     try {
-      const response = await fetch(`/api/geneLiter/elimgeneros/${generoId}`, {
+      const response = await fetch(`${API_URL}/api/geneLiter/elimgeneros/${generoId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

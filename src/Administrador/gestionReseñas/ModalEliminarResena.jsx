@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarResena ({ isOpen, onClose, resenaId, obtenerResenas})  {
     const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarResena ({ isOpen, onClose, resenaId, obtenerResenas})  {
   const handleOpenDeleteModal = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/resenas/deleteresenas/${resenaId}`, {
+      const response = await fetch(`${API_URL}/api/resenas/deleteresenas/${resenaId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

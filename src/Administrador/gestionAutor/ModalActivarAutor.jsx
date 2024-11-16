@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarAutor({ isOpen, onClose, autorId,obtenerAutores}) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalActivarAutor({ isOpen, onClose, autorId,obtenerAutores}) {
   const handleActivarAutor = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/autror/autoresact/${autorId}`, {
+      const response = await fetch(`${API_URL}/api/autror/autoresact/${autorId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

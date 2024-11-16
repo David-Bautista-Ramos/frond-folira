@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useCreateAutor from "../../hooks/useCreateAutor";
 import Select from "react-select";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalCrearAutor({ isOpen, onClose, obtenerAutores, token }) {
   const paises = [
@@ -81,7 +82,7 @@ function ModalCrearAutor({ isOpen, onClose, obtenerAutores, token }) {
   useEffect(() => {
     const fetchGenerosLiterarios = async () => {
       try {
-        const response = await fetch('/api/geneLiter/getgeneros', {
+        const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalInactivarDenuncia = ({
   isOpen,
@@ -13,7 +14,7 @@ const ModalInactivarDenuncia = ({
   useEffect(() => {
     if (isOpen && denunciasId) {
       setLoading(true); // Inicia el loading al abrir el modal
-      fetch(`/api/denuncias/denuncia/${denunciasId}`)
+      fetch(`${API_URL}/api/denuncias/denuncia/${denunciasId}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Error al obtener la denuncia");
@@ -30,7 +31,7 @@ const ModalInactivarDenuncia = ({
     setLoading(true);
     try {
       const response = await fetch(
-        `/api/denuncias/denunciades/${denunciasId}`,
+        `${API_URL}/api/denuncias/denunciades/${denunciasId}`,
         {
           method: "PUT",
           headers: {

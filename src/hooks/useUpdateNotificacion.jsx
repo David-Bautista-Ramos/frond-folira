@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const useUpdateNotificacion = (notificacionId) => {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ const useUpdateNotificacion = (notificacionId) => {
   const { mutateAsync: updateNotificacion, isPending: isUpdatingNotificacion } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/notifications/actuNotifi/${notificacionId}`, {
+        const res = await fetch(`${API_URL}/api/notifications/actuNotifi/${notificacionId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 const LibroSugerido = () => {
@@ -16,7 +17,7 @@ const LibroSugerido = () => {
 
     const fetchLibros = async () => {
         try {
-            const response = await fetch(`/api/libro/getlibrosact`, {
+            const response = await fetch(`${API_URL}/api/libro/getlibrosact`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +41,7 @@ const LibroSugerido = () => {
     const fetchLibrosGuardados = useCallback(async () => {
         if (!authUser || !authUser._id) return;
         try {
-            const response = await fetch(`/api/guardarLibros/libros-guardados/${authUser._id}`, {
+            const response = await fetch(`${API_URL}/api/guardarLibros/libros-guardados/${authUser._id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ const LibroSugerido = () => {
         try {
             const userId = authUser._id;
 
-            const response = await fetch(`/api/guardarLibros/guardar-libro`, {
+            const response = await fetch(`${API_URL}/api/guardarLibros/guardar-libro`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +92,7 @@ const LibroSugerido = () => {
         try {
             const userId = authUser._id;
 
-            const response = await fetch(`/api/guardarLibros/eliminar-libro`, {
+            const response = await fetch(`${API_URL}/api/guardarLibros/eliminar-libro`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

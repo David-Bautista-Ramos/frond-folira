@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import usePosts from '../../hooks/usePost';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalDenuncia = ({ postId, tipoDenuncia }) => {
   const [motivo, setMotivo] = useState('');
@@ -12,7 +13,7 @@ const ModalDenuncia = ({ postId, tipoDenuncia }) => {
 
   const { mutate: reportPost, isPending: isReporting } = useMutation({
     mutationFn: async () => {
-      const res = await fetch(`/api/posts/numDenun/${postId}`, {
+      const res = await fetch(`${API_URL}/api/posts/numDenun/${postId}`, {
         method: 'POST',
       });
       if (!res.ok) throw new Error('Failed to report post');
@@ -36,7 +37,7 @@ const ModalDenuncia = ({ postId, tipoDenuncia }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch('/api/denuncias/denuncia', {
+      const res = await fetch(`${API_URL}/api/denuncias/denuncia`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

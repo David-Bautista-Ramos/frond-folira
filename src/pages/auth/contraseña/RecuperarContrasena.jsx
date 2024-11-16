@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/img/Folira_logo.png'
 import toast from 'react-hot-toast';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const RecuperarContrasena = () => {
     const [correo, setCorreo] = useState('');
@@ -21,7 +22,7 @@ const RecuperarContrasena = () => {
         }
 
         try {
-            const response = await fetch('/api/users/RecupearPass', {
+            const response = await fetch(`${API_URL}/api/users/RecupearPass`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

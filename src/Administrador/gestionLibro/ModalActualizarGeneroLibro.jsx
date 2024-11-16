@@ -1,5 +1,6 @@
   import { useState, useEffect } from 'react';
   import useUpdateGenero from '../../hooks/useUpdateGenero';
+  const API_URL = "https://backendfoli-production.up.railway.app"; 
 
   function ModalActualizarGenero({ isOpen, onClose,generoId, onUpdate,obtenerGenerosLiterarios }) {
     const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@
     // Function to fetch the genre data
     const fetchGenero = async (generoId) => {
       try {
-        const response = await fetch(`/api/geneLiter/generoid/${generoId}`); // Adjust API endpoint as needed
+        const response = await fetch(`${API_URL}/api/geneLiter/generoid/${generoId}`); // Adjust API endpoint as needed
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

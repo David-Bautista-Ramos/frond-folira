@@ -12,6 +12,7 @@ import ModalCrearPublicacion from "./ModalCrearPublicacion";
 import ModalActualizarPublicacion from "./ModalActualizarPublicacion";
 import ModalFiltroPublicaciones from "../../components/common/FiltroPublicacion";
 import ModalEliminarPublicacion from "./ModalEliminarPublicacion";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function GestionPublicaciones() {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -40,7 +41,7 @@ function GestionPublicaciones() {
     const obtenerPublicaciones = async () => {
       setIsLoading(true); // Inicia la carga
       try {
-        const response = await fetch("/api/posts/all", {
+        const response = await fetch(`${API_URL}/api/posts/all`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -126,14 +127,14 @@ useEffect(() => {
       let response;
   
       if (filter === "Activo") {
-        response = await fetch('/api/posts/getactpost', {
+        response = await fetch(`${API_URL}/api/posts/getactpost`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
         });
       } else if (filter === "Inactivo") {
-        response = await fetch('/api/posts/getdespost', {
+        response = await fetch(`${API_URL}/api/posts/getdespost`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

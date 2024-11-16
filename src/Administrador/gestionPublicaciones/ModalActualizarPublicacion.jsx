@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import useUpdatePublicacion from "../../hooks/useUpdatePost"; // Hook de actualización
 import Select from 'react-select';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 function ModalActualizarPublicacion({ isOpen, onClose, publicacionId }) {
@@ -23,14 +24,14 @@ function ModalActualizarPublicacion({ isOpen, onClose, publicacionId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const postResponse = await fetch(`/api/posts/userPost/${publicacionId}`);
+        const postResponse = await fetch(`${API_URL}/api/posts/userPost/${publicacionId}`);
         if (!postResponse.ok) throw new Error("Error al obtener la publicación");
 
         const postData = await postResponse.json();
 
         const [usuariosResponse, comunidadesResponse] = await Promise.all([
-          fetch("/api/users/allUsers"),
-          fetch("/api/comunidad/comunidad"),
+          fetch(`${API_URL}/api/users/allUsers`),
+          fetch(`${API_URL}/api/comunidad/comunidad`),
         ]);
 
         if (!usuariosResponse.ok || !comunidadesResponse.ok) {

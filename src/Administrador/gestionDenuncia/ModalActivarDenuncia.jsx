@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalActivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias }) => {
     const [denuncia, setDenuncia] = useState(null); // Estado para la denuncia
@@ -8,7 +9,7 @@ const ModalActivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias }
     useEffect(() => {
         if (isOpen && denunciasId) {
             // Cargar la denuncia específica al abrir el modal
-            fetch(`/api/denuncias/denuncia/${denunciasId}`)
+            fetch(`${API_URL}/api/denuncias/denuncia/${denunciasId}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error("Error al obtener la denuncia");
@@ -24,7 +25,7 @@ const ModalActivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias }
     const handleActivarDenuncia = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/denuncias/denunciaact/${denunciasId}`, {
+            const response = await fetch(`${API_URL}/api/denuncias/denunciaact/${denunciasId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -16,11 +16,12 @@ const ModalCrearReseña = ({ isOpen, onClose, token }) => {
   const [showLibros, setShowLibros] = useState(false);
 
   const { createResena, isCreatingResena } = useCreateResena();
+  const API_URL = "https://backendfoli-production.up.railway.app"; 
 
   useEffect(() => {
     const fetchAutores = async () => {
       try {
-        const response = await fetch("/api/autror/autores", {
+        const response = await fetch(`${API_URL}/api/autror/autores`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -38,7 +39,7 @@ const ModalCrearReseña = ({ isOpen, onClose, token }) => {
   useEffect(() => {
     const fetchLibros = async () => {
       try {
-        const response = await fetch("/api/libro/getlibros", {
+        const response = await fetch(`${API_URL}/api/libro/getlibros`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -56,7 +57,7 @@ const ModalCrearReseña = ({ isOpen, onClose, token }) => {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await fetch("/api/users/allUsers", { // Asegúrate de que esta ruta sea correcta
+        const response = await fetch(`${API_URL}/api/users/allUsers`, { // Asegúrate de que esta ruta sea correcta
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

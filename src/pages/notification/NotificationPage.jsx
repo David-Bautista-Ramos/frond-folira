@@ -5,6 +5,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaUser, FaHeart, FaTrash, FaTriangleExclamation, FaRegMessage, FaArrowRightToCity } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const NotificationPage = () => {
   const queryClient = useQueryClient(); 
@@ -15,7 +16,7 @@ const NotificationPage = () => {
   const { data: notifications, isLoading, error } = useQuery({
     queryKey: ['notifications'],
     queryFn: async () => {
-      const res = await fetch('/api/notifications/');
+      const res = await fetch(`${API_URL}/api/notifications/`);
       if (!res.ok) {
         const errorData = await res.json();
         throw new Error(errorData.error || 'Error al cargar notificaciones');
@@ -27,7 +28,7 @@ const NotificationPage = () => {
   // Eliminar una notificación específica
   const { mutate: deleteNotification } = useMutation({
     mutationFn: async (id) => {
-      const res = await fetch(`/api/notifications/notifi/${id}`, { method: 'DELETE' });
+      const res = await fetch(`${API_URL}/api/notifications/notifi/${id}`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Error al eliminar la notificación');
     },
     onMutate: async (id) => {
@@ -54,7 +55,7 @@ const NotificationPage = () => {
   // Eliminar todas las notificaciones
   const { mutate: deleteAllNotifications } = useMutation({
     mutationFn: async () => {
-      const res = await fetch('/api/notifications/', { method: 'DELETE' });
+      const res = await fetch(`${API_URL}/api/notifications/`, { method: 'DELETE' });
       if (!res.ok) throw new Error('Error al eliminar todas las notificaciones');
     },
     onMutate: async () => {

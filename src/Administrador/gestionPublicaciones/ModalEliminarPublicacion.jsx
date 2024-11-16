@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarPublicacion({ isOpen, onClose, publicacionId, obtenerPublicaciones }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarPublicacion({ isOpen, onClose, publicacionId, obtenerPubli
   const handleDelete = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/posts/admPostDel/${publicacionId}`, {
+      const response = await fetch(`${API_URL}/api/posts/admPostDel/${publicacionId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       });

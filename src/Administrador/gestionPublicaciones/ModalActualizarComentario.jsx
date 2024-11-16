@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalEditarComentario = ({
     isOpen,
@@ -17,7 +18,7 @@ const ModalEditarComentario = ({
     useEffect(() => {
         const fetchComentario = async () => {
             try {
-                const response = await fetch(`/api/posts/commenxID/${publicacionId}/${comentarioId}`);
+                const response = await fetch(`${API_URL}/api/posts/commenxID/${publicacionId}/${comentarioId}`);
                 if (!response.ok) throw new Error("Error al cargar el comentario");
 
                 const data = await response.json();
@@ -42,7 +43,7 @@ const ModalEditarComentario = ({
         }
 
         try {
-            const response = await fetch(`/api/posts/editarcomen/${publicacionId}/${comentarioId}`, {
+            const response = await fetch(`${API_URL}/api/posts/editarcomen/${publicacionId}/${comentarioId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nuevoTexto: text }),

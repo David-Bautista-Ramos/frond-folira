@@ -1,4 +1,5 @@
 import {useState} from 'react';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalInactivarComunidad({ isOpen, onClose, comunidadId, obtenerComunidades }) {
 
@@ -11,7 +12,7 @@ function ModalInactivarComunidad({ isOpen, onClose, comunidadId, obtenerComunida
     setLoading(true);
     setError(null); // Limpiar errores previos
     try {
-      const response = await fetch(`/api/comunidad/comunidaddes/${comunidadId}`, {
+      const response = await fetch(`${API_URL}/api/comunidad/comunidaddes/${comunidadId}`, {
         method: 'PUT', // Cambia el método según sea necesario (PUT/POST)
         headers: {
           'Content-Type': 'application/json',

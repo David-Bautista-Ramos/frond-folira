@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Select from 'react-select';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const SignUpPage = () => {
 	
@@ -125,7 +126,7 @@ const SignUpPage = () => {
 	const { mutate, isError, isPending, error } = useMutation({
         
 		mutationFn: async ({ correo, nombre, nombreCompleto, pais, contrasena }) => {
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch(`${API_URL}/api/auth/signup`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ correo, nombre, nombreCompleto, pais, contrasena }),
@@ -177,7 +178,7 @@ const SignUpPage = () => {
   }
   const validacionCorreo = async (correo) => {
     if (correo.length > 0) {
-      const response = await fetch(`/api/users/VerifiCOR?correo=${correo}`);
+      const response = await fetch(`${API_URL}/api/users/VerifiCOR?correo=${correo}`);
       const result = await response.json();
       setCorreoExists(result.exists);
     } else {
@@ -187,7 +188,7 @@ const SignUpPage = () => {
 
   const validacionNombre = async (nombre) => {
     if (nombre.length > 0) {
-      const response = await fetch(`/api/users/VerifiNOM?nombre=${nombre}`);
+      const response = await fetch(`${API_URL}/api/users/VerifiNOM?nombre=${nombre}`);
       const result = await response.json();
       setNombreExists(result.exists);
     } else {
@@ -197,7 +198,7 @@ const SignUpPage = () => {
 
   const validacionNombreCompleto = async (nombreCompleto) => {
     if (nombreCompleto.length > 0) {
-      const response = await fetch(`/api/users/VerifiNOMCOMPL?nombreCompleto=${nombreCompleto}`);
+      const response = await fetch(`${API_URL}/api/users/VerifiNOMCOMPL?nombreCompleto=${nombreCompleto}`);
       const result = await response.json();
       setNombreCompletoExists(result.exists);
     } else {

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import useUpdateAutor from '../../hooks/useUpdateAutor.jsx';
 import Select from 'react-select';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 const ModalActualizarAutor = ({ isOpen, onClose, autorId, token, obtenerAutores }) => {
@@ -96,7 +97,7 @@ const ModalActualizarAutor = ({ isOpen, onClose, autorId, token, obtenerAutores 
         const fetchAuthorData = async () => {
             if (isOpen && autorId) {
                 try {
-                    const response = await fetch(`/api/autror/autores/${autorId}`, {
+                    const response = await fetch(`${API_URL}/api/autror/autores/${autorId}`, {
                         method: "GET",
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -130,7 +131,7 @@ const ModalActualizarAutor = ({ isOpen, onClose, autorId, token, obtenerAutores 
     useEffect(() => {
         const fetchGenerosLiterarios = async () => {
             try {
-                const response = await fetch('/api/geneLiter/getgeneros', {
+                const response = await fetch(`${API_URL}/api/geneLiter/getgeneros`, {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,

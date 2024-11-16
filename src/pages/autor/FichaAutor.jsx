@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'; // Importa usePara
 import { useQuery } from '@tanstack/react-query';
 import { BsArrowLeft, BsEye, BsEyeSlash, BsStar, BsStarFill } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const FichaTecnicaAutor = () => {
   const { id: autorId } = useParams(); // Obtiene el id desde la URL
@@ -36,7 +37,7 @@ const toggleBiografiaVisibility = () => {
   useEffect(() => {
     const fetchAutor = async () => {
       try {
-        const response = await fetch(`/api/autror/autores/${autorId}`); // Cambia la ruta según tu API
+        const response = await fetch(`${API_URL}/api/autror/autores/${autorId}`); // Cambia la ruta según tu API
         if (!response.ok) {
           throw new Error('Error al obtener el autor');
         }
@@ -52,7 +53,7 @@ const toggleBiografiaVisibility = () => {
      // Función para obtener las reseñas del libro
   const fetchReseñas = async () => {
     try {
-      const response = await fetch(`/api/resenas/autorRes/${autorId}`); // Cambia la ruta según tu API
+      const response = await fetch(`${API_URL}/api/resenas/autorRes/${autorId}`); // Cambia la ruta según tu API
       if (!response.ok) {
         throw new Error('Error al obtener las reseñas');
       }
@@ -93,7 +94,7 @@ const toggleBiografiaVisibility = () => {
     };
   
     try {
-      const response = await fetch('/api/resenas/resenas', {
+      const response = await fetch(`${API_URL}/api/resenas/resenas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +117,7 @@ const toggleBiografiaVisibility = () => {
 
   const handleDeleteReseña = async (id) => {
     try {
-      const response = await fetch(`/api/resenas/deleteresenas/${id}`, {
+      const response = await fetch(`${API_URL}/api/resenas/deleteresenas/${id}`, {
         method: 'DELETE',
       });
 
@@ -133,7 +134,7 @@ const toggleBiografiaVisibility = () => {
   const fetchReseñas = async () => {
     setLoadingReseñas(true);
     try {
-      const response = await fetch(`/api/resenas/autorRes/${autorId}`);
+      const response = await fetch(`${API_URL}/api/resenas/autorRes/${autorId}`);
       if (!response.ok) {
         throw new Error('Error al obtener las reseñas');
       }

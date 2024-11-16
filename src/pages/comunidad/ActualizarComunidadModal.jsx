@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import useUpdateComunidad from '../../hooks/useUpdateUserComini';
 import {  useQueryClient } from '@tanstack/react-query';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalActualizarComunidad = ({ isOpen, onClose, token, comunidadId }) => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const ModalActualizarComunidad = ({ isOpen, onClose, token, comunidadId }) => {
   useEffect(() => {
     const fetchGeneros = async () => {
       try {
-        const response = await fetch('/api/geneLiter/generosactuser', {
+        const response = await fetch(`${API_URL}/api/geneLiter/generosactuser`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -61,7 +62,7 @@ const ModalActualizarComunidad = ({ isOpen, onClose, token, comunidadId }) => {
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await fetch('/api/users/allUsers', {
+        const response = await fetch(`${API_URL}/api/users/allUsers`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -79,7 +80,7 @@ const ModalActualizarComunidad = ({ isOpen, onClose, token, comunidadId }) => {
   useEffect(() => {
     const fetchComunidad = async () => {
       try {
-        const response = await fetch(`/api/comunidad/comunidad/${comunidadId}`, {
+        const response = await fetch(`${API_URL}/api/comunidad/comunidad/${comunidadId}`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,

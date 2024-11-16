@@ -1,4 +1,5 @@
 import {useState} from 'react';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalInactivarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterarios }) {
 
@@ -12,7 +13,7 @@ function ModalInactivarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterar
       setError(null); // Limpiar errores previos
 
       try {
-        const response = await fetch(`/api/geneLiter/generos/desactivar/${generoId}`, {
+        const response = await fetch(`${API_URL}/api/geneLiter/generos/desactivar/${generoId}`, {
           method: 'PUT', // Cambia el método según sea necesario (PUT/POST)
           headers: {
             'Content-Type': 'application/json',

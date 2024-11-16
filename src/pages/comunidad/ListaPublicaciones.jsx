@@ -6,6 +6,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import ModalDenuncia from "../../components/common/DenunciaModal";
 import { formatPostDate } from "../../utils/date";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
   const queryClient = useQueryClient();
@@ -20,7 +21,7 @@ const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
   // Mutación para eliminar publicaciones
   const handleDeletePost = useMutation({
     mutationFn: async (postId) => {
-      const res = await fetch(`/api/posts/${postId}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/api/posts/${postId}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar la publicación");
       return res.json();
     },
@@ -35,7 +36,7 @@ const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
 
   const handleLikePost = useMutation({
     mutationFn: async (postId) => {
-      const res = await fetch(`/api/posts/like/${postId}`, { method: "POST" });
+      const res = await fetch(`${API_URL}/api/posts/like/${postId}`, { method: "POST" });
       return res.json();
     },
     onSuccess: () => queryClient.invalidateQueries(["posts"]),
@@ -43,7 +44,7 @@ const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
 
   const handleCommentPost = useMutation({
     mutationFn: async (postId) => {
-      const res = await fetch(`/api/posts/comment/${postId}`, {
+      const res = await fetch(`${API_URL}/api/posts/comment/${postId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: comentario, image: previewImage }),
@@ -61,7 +62,7 @@ const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
 
   const handleDeleteComment = useMutation({
     mutationFn: async ({ postId, commentId }) => {
-      await fetch(`/api/posts/deletecomen/${postId}/${commentId}`, { method: "DELETE" });
+      await fetch(`${API_URL}/api/posts/deletecomen/${postId}/${commentId}`, { method: "DELETE" });
     },
     onSuccess: () => {
       toast.success("Comentario eliminado.");

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 function ModalEliminarComentario({ isOpen, onClose, publicacionId, comentarioId, obtenerPublicaciones }) {
@@ -10,7 +11,7 @@ function ModalEliminarComentario({ isOpen, onClose, publicacionId, comentarioId,
   const handleDelete = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/posts/deletecomen/${publicacionId}/${comentarioId}`, {
+      const response = await fetch(`${API_URL}/api/posts/deletecomen/${publicacionId}/${comentarioId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       });

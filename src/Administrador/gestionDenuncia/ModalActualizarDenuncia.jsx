@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalInactivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias, token }) => {
     const [denuncia, setDenuncia] = useState(null); // Estado para la denuncia
@@ -11,7 +12,7 @@ const ModalInactivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias
     useEffect(() => {
         const fetchUsuarios = async () => {
             try {
-                const response = await fetch('/api/users/allUsers', {
+                const response = await fetch(`${API_URL}/api/users/allUsers`, {
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -32,7 +33,7 @@ const ModalInactivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias
         const fetchDenuncia = async () => {
             if (isOpen && denunciasId) {
                 try {
-                    const response = await fetch(`/api/denuncias/denuncia/${denunciasId}`);
+                    const response = await fetch(`${API_URL}/api/denuncias/denuncia/${denunciasId}`);
                     if (!response.ok) {
                         throw new Error("Error al obtener la denuncia");
                     }
@@ -50,7 +51,7 @@ const ModalInactivarDenuncia = ({ isOpen, onClose, denunciasId, obtenerDenuncias
     const handleActualizarDenuncia = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/denuncias/denuncia/${denunciasId}`, {
+            const response = await fetch(`${API_URL}/api/denuncias/denuncia/${denunciasId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

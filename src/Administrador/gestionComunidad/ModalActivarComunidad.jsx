@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarComunidad({ isOpen, onClose, comunidadId, obtenerComunidades }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalActivarComunidad({ isOpen, onClose, comunidadId, obtenerComunidade
   const handleOpenActivarModal = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/comunidad/comunidadact/${comunidadId}`, {
+      const response = await fetch(`${API_URL}/api/comunidad/comunidadact/${comunidadId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function useCreateUser() {
     const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ function useCreateUser() {
     const { mutateAsync: createUser, isPending: isCreatingUser } = useMutation({
         mutationFn: async (formData) => {
             try {
-                const res = await fetch(`/api/users/createUser`, {
+                const res = await fetch(`${API_URL}/api/users/createUser`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

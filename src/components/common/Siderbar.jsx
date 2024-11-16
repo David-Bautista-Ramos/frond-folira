@@ -8,6 +8,7 @@ import {  BiLogOut, BiSolidFolder } from "react-icons/bi";
 import { GiFeather, GiOpenBook } from "react-icons/gi";
 import Folira_general from "../../assets/img/Folira_general.svg";
 import { useRef } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 const Sidebar = () => {
@@ -24,7 +25,7 @@ const Sidebar = () => {
 
                 const userId = authUser._id;
 
-                const res = await fetch("/api/auth/logout", {
+                const res = await fetch(`${API_URL}/api/auth/logout`, {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ tiempoEnPantalla, userId })  // Enviamos el tiempo y el ID

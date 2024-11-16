@@ -1,4 +1,5 @@
 import {useState} from 'react';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalInactivarReseña({ isOpen, onClose, resenaId, obtenerResenas }) {
 
@@ -11,7 +12,7 @@ function ModalInactivarReseña({ isOpen, onClose, resenaId, obtenerResenas }) {
     setLoading(true);
     setError(null); // Limpiar errores previos
     try {
-      const response = await fetch(`/api/resenas/desresenas/${resenaId}`, {
+      const response = await fetch(`${API_URL}/api/resenas/desresenas/${resenaId}`, {
         method: 'PUT', // Cambia el método según sea necesario (PUT/POST)
         headers: {
           'Content-Type': 'application/json',

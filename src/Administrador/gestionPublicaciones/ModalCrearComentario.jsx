@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalCrearComentario = ({
     isOpen,
@@ -17,7 +18,7 @@ const ModalCrearComentario = ({
         // Función para obtener usuarios
         const fetchUsuarios = async () => {
             try {
-                const response = await fetch('/api/users/allUsers'); // Asegúrate de tener esta ruta en tu backend
+                const response = await fetch(`${API_URL}/api/users/allUsers`); // Asegúrate de tener esta ruta en tu backend
                 const data = await response.json();
                 setUsuarios(data);
             } catch (err) {
@@ -41,7 +42,7 @@ const ModalCrearComentario = ({
         }
 
         try {
-            const response = await fetch(`/api/posts/commentAd/${publicacionId}`, {
+            const response = await fetch(`${API_URL}/api/posts/commentAd/${publicacionId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

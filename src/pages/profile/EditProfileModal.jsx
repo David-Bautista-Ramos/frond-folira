@@ -3,6 +3,7 @@ import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
 import Select from 'react-select';
 import toast from "react-hot-toast";
 import { BiShow, BiHide } from 'react-icons/bi';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 
 const EditProfileModal = ({ authUser }) => {
@@ -118,7 +119,7 @@ const EditProfileModal = ({ authUser }) => {
 	  // Obtener lista de géneros literarios
 	  const obtenerGeneros = async () => {
 		try {
-		  const response = await fetch("/api/geneLiter/generosactuser");
+		  const response = await fetch(`${API_URL}/api/geneLiter/generosactuser`);
 		  if (!response.ok) throw new Error("Error al obtener los géneros");
 		  const data = await response.json();
 		  setGenerosDisponibles(data);
@@ -130,8 +131,8 @@ const EditProfileModal = ({ authUser }) => {
 	  const toggleEstadoUsuario = async () => {
 		try {
 		  const url = isActive
-			? `/api/users/estadoDes/${authUser._id}` // Endpoint para desactivar
-			: `/api/users/estadoAct/${authUser._id}`; // Endpoint para activar
+			? `${API_URL}/api/users/estadoDes/${authUser._id}` // Endpoint para desactivar
+			: `${API_URL}/api/users/estadoAct/${authUser._id}`; // Endpoint para activar
 	  
 		  const response = await fetch(url, {
 			method: "POST",

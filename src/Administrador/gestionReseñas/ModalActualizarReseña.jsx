@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useUpdateResena from "../../hooks/useUpdateReseña";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const ModalActualizarReseña = ({
   isOpen,
@@ -26,7 +27,7 @@ const ModalActualizarReseña = ({
     const fetchReseña = async () => {
       if (isOpen && resenaId) {
         try {
-          const response = await fetch(`/api/resenas/getresenas/${resenaId}`, {
+          const response = await fetch(`${API_URL}/api/resenas/getresenas/${resenaId}`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
           });
@@ -52,7 +53,7 @@ const ModalActualizarReseña = ({
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const response = await fetch("/api/users/allUsers", {
+        const response = await fetch(`${API_URL}/api/users/allUsers`, {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -68,7 +69,7 @@ const ModalActualizarReseña = ({
   useEffect(() => {
     const fetchAutores = async () => {
       try {
-        const response = await fetch("/api/autror/autores", {
+        const response = await fetch(`${API_URL}/api/autror/autores`, {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -84,7 +85,7 @@ const ModalActualizarReseña = ({
   useEffect(() => {
     const fetchLibros = async () => {
       try {
-        const response = await fetch("/api/libro/getlibros", {
+        const response = await fetch(`${API_URL}/api/libro/getlibros`, {
           method: "GET",
           headers: { Authorization: `Bearer ${token}` },
         });

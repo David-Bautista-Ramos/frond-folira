@@ -9,6 +9,7 @@ import usePosts from '../../hooks/usePost';
 import ListaPublicaciones from './ListaPublicaciones';
 import EmojiPicker from 'emoji-picker-react';
 import ModalMiembrosComunidad from './ModalMiembros';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const DetallesComunidad = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const handleConfirmInactivar = () => {
   const { data: comunidad, isLoading: loadingComunidad } = useQuery({
     queryKey: ['comunidad', id],
     queryFn: async () => {
-      const res = await fetch(`/api/comunidad/comunidad/${id}`);
+      const res = await fetch(`${API_URL}/api/comunidad/comunidad/${id}`);
       if (!res.ok) throw new Error('Error al obtener la comunidad');
       return res.json();
     },
@@ -42,7 +43,7 @@ const handleConfirmInactivar = () => {
 
   const { mutate: crearPost} = useMutation({
     mutationFn: async ({ contenido, fotoPublicacion }) => {
-      const res = await fetch('/api/posts/create', {
+      const res = await fetch(`${API_URL}/api/posts/create`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contenido, fotoPublicacion, comunidadId: id }),
@@ -80,7 +81,7 @@ const handleConfirmInactivar = () => {
 
   const handleSalirComunidad = async () => {
     try {
-      const res = await fetch('/api/comunidad/salircomunidad', {
+      const res = await fetch(`${API_URL}/api/comunidad/salircomunidad`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: authUser._id, comunidadId: id }),
@@ -97,7 +98,7 @@ const handleConfirmInactivar = () => {
 
   const handleInactivarComunidad = async () => {
     try {
-      const res = await fetch(`/api/comunidad/comunidaddes/${id}`, {
+      const res = await fetch(`${API_URL}/api/comunidad/comunidaddes/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +121,7 @@ const handleConfirmInactivar = () => {
     const userId = authUser._id;
 
     try {
-      const response = await fetch('/api/comunidad/unircomunidad', {
+      const response = await fetch(`${API_URL}/api/comunidad/unircomunidad`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, comunidadId: id }),

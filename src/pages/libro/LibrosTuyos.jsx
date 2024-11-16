@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom"; 
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const LibrosTuyos = () => {
   const queryClient = useQueryClient();
@@ -21,7 +22,7 @@ const LibrosTuyos = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `/api/guardarLibros/libros-guardados/${authUser._id}`,
+        `${API_URL}/api/guardarLibros/libros-guardados/${authUser._id}`,
         { method: "GET", headers: { "Content-Type": "application/json" } }
       );
       if (!response.ok) throw new Error("Error al obtener libros guardados");
@@ -40,7 +41,7 @@ const LibrosTuyos = () => {
 
   const { mutate: deleteLibro, isLoading: isDeleting } = useMutation({
     mutationFn: async (libroId) => {
-      const res = await fetch(`/api/libros/${libroId}`, { method: "DELETE" });
+      const res = await fetch(`${API_URL}/api/libros/${libroId}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Error al eliminar el libro");
       return res.json();
     },
@@ -54,8 +55,8 @@ const LibrosTuyos = () => {
   const handleSaveToggle = async (libroId) => {
     const libro = librosGuardados.find((l) => l._id === libroId);
     const endpoint = libro
-      ? `/api/guardarLibros/eliminar-libro`
-      : `/api/guardarLibros/guardar-libro`;
+      ? `${API_URL}/api/guardarLibros/eliminar-libro`
+      : `${API_URL}/api/guardarLibros/guardar-libro`;
 
     try {
       const response = await fetch(endpoint, {

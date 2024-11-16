@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterarios }) {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ function ModalActivarGenero({ isOpen, onClose, generoId, obtenerGenerosLiterario
 
       try {
 
-        const response = await fetch(`/api/geneLiter/generos/activar/${generoId}`, {
+        const response = await fetch(`${API_URL}/api/geneLiter/generos/activar/${generoId}`, {
           method: 'PUT',
           headers: {
           'Content-Type': 'application/json',

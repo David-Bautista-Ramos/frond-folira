@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function useCreateGenero() {
   const queryClient = useQueryClient();
@@ -7,7 +8,7 @@ function useCreateGenero() {
   const { mutateAsync: createGenero, isPending: isCreatingGenero } = useMutation({
     mutationFn: async (formData) => {
       try {
-        const res = await fetch(`/api/geneLiter/generos`, {
+        const res = await fetch(`${API_URL}/api/geneLiter/generos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

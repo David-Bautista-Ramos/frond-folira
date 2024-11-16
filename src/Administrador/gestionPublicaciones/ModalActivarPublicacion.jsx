@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarPublicacion  ({ isOpen, onClose, publicacionId, obtenerPublicaciones })  {
     const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalActivarPublicacion  ({ isOpen, onClose, publicacionId, obtenerPubl
     const handleActivarAutor = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/posts/actpost/${publicacionId}`, {
+        const response = await fetch(`${API_URL}/api/posts/actpost/${publicacionId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

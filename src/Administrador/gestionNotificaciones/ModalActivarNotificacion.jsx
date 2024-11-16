@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalActivarNotificacion({ isOpen, onClose, NotificacionId, obtenerNotificaciones }) {
 
@@ -9,7 +10,7 @@ function ModalActivarNotificacion({ isOpen, onClose, NotificacionId, obtenerNoti
   const handleOpenActivarModal = async () => {
     setLoading(true);  
     try {
-      const response = await fetch(`/api/notifications/notifi/${NotificacionId}`, {
+      const response = await fetch(`${API_URL}/api/notifications/notifi/${NotificacionId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'; // Importa useEffect y useState
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 const Comunidad = ({ authUser }) => {
   const [autores, setAutores] = useState([]); // Estado para manejar los autores
@@ -12,7 +13,7 @@ const Comunidad = ({ authUser }) => {
 
   const fetchAutores = async () => {
     try {
-      const response = await fetch(`/api/autror/getAutoresAct`, { // Asegúrate de que esta URL es correcta
+      const response = await fetch(`${API_URL}/api/autror/getAutoresAct`, { // Asegúrate de que esta URL es correcta
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

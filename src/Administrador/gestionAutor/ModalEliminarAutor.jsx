@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API_URL = "https://backendfoli-production.up.railway.app"; 
 
 function ModalEliminarAutor({ isOpen, onClose, autorId, obtenerAutores }) {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,7 @@ function ModalEliminarAutor({ isOpen, onClose, autorId, obtenerAutores }) {
   const handleEliminarAutor = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/autror/deleteautores/${autorId}`, {
+      const response = await fetch(`${API_URL}/api/autror/deleteautores/${autorId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
