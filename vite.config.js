@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
 			"/api": {
-				target: "https://backendfoli-production.up.railway.app",
+				target: "https://backendfoli.onrender.com",
 				changeOrigin: true,
         
 			},

@@ -35,7 +35,7 @@ import { createContext, useEffect,  useRef  } from 'react';
 
 // Crear un contexto para compartir el tiempo en pantalla
 export const TimeSpentContext = createContext();
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 function App() {
   
@@ -48,10 +48,11 @@ function App() {
       try {
         const res = await fetch(`${API_URL}/api/auth/me`,{
           method: 'GET',
-          credentials: 'include', // Envía cookies
           headers: {
             'Content-Type': 'application/json',
           },
+          withCredentials: true, // Asegúrate de incluir las credenciales (cookies)
+
         });
         const data = await res.json();
         if (data.error) return null;

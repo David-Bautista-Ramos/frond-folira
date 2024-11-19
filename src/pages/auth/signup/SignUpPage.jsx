@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Select from 'react-select';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const SignUpPage = () => {
 	
