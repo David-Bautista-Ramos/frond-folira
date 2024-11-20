@@ -23,6 +23,7 @@ const CreatePost = () => {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ contenido, fotoPublicacion }),
+					credentials: "include", // Incluir cookies en la solicitud
 				});
 				const data = await res.json();
 				if (!res.ok) throw new Error(data.error || "Algo salió mal");
