@@ -46,7 +46,15 @@ function App() {
     queryKey: ['authUser'],
     queryFn: async () => {
       try {
-        const token = localStorage.getItem('vercel-toolbar-token'); // Obtén el token de localStorage
+        //Aquí agregamos el código que obtiene el token del localStorage
+        const sessionData = JSON.parse(localStorage.getItem('vercel-toolbar-session'));
+        const token = sessionData ? sessionData.token : null;  // Verificar si el sessionData y el token existen
+        console.log(token);
+  
+        // Verificar si no hay token
+        if (!token) {
+          throw new Error("Token no encontrado");
+        }
         const res = await fetch(`${API_URL}/api/auth/me`,{
           method: 'GET',
           credentials: "include", // Incluir cookies en la solicitud
