@@ -46,7 +46,7 @@ function App() {
     queryKey: ['authUser'],
     queryFn: async () => {
       try {
-        const token = localStorage.getItem('token'); // Obtén el token de localStorage
+        const token = localStorage.getItem('jwt'); // Obtén el token de localStorage
         const res = await fetch(`${API_URL}/api/auth/me`,{
           method: 'GET',
           credentials: "include", // Incluir cookies en la solicitud
