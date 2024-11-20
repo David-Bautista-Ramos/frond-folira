@@ -35,7 +35,7 @@ import { createContext, useEffect,  useRef  } from 'react';
 
 // Crear un contexto para compartir el tiempo en pantalla
 export const TimeSpentContext = createContext();
-const API_URL = "https://backend-c3y1.onrender.com"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 function App() {
   
