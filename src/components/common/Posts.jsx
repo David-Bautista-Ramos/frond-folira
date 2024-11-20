@@ -2,7 +2,7 @@ import Post from "./Post";
 import PostSkeleton from "../skeletons/PostSkeleton";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const Posts = ({feedType, nombre, userId}) => {
 

@@ -18,7 +18,7 @@ import { MdEdit } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { formatMemberSinceDate } from "../../utils/date";
 import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const ProfilePage = () => {
   const [fotoPerfilBan, setfotoPerfilBan] = useState(null);

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useFollow from "../../hooks/userFollow";
 import LoadingSpinner from "./LoadingSpinner";
 import { useState } from "react";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const RightPanel = () => {
   const [pendingUserId, setPendingUserId] = useState(null); // Estado para el usuario en proceso de seguimiento

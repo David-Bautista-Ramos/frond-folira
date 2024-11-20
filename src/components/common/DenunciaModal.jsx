@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import usePosts from '../../hooks/usePost';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const ModalDenuncia = ({ postId, tipoDenuncia }) => {
   const [motivo, setMotivo] = useState('');

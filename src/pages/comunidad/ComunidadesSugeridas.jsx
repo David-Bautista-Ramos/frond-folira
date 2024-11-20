@@ -5,7 +5,7 @@ import ModalCrearNuevaComunidad from './ModalCrearNuevaComunidad.jsx';
 import toast from 'react-hot-toast';
 // import { FaPlus } from 'react-icons/fa';
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 
 // Componente para cada tarjeta de comunidad

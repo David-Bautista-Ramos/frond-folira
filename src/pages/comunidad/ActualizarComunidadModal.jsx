@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import useUpdateComunidad from '../../hooks/useUpdateUserComini';
 import {  useQueryClient } from '@tanstack/react-query';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const ModalActualizarComunidad = ({ isOpen, onClose, token, comunidadId }) => {
   const [formData, setFormData] = useState({

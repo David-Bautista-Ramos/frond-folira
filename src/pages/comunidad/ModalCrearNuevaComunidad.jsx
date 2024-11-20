@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import useCreateComunidad from '../../hooks/useCreateComunidad';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const ModalCrearNuevaComunidad = ({ isOpen, onClose, token, userId, obtenerComunidades }) => {
   const [formData, setFormData] = useState({

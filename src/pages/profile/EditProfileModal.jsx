@@ -3,7 +3,7 @@ import useUpdateUserProfile from "../../hooks/useUpdateUserProfile";
 import Select from 'react-select';
 import toast from "react-hot-toast";
 import { BiShow, BiHide } from 'react-icons/bi';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 
 const EditProfileModal = ({ authUser }) => {

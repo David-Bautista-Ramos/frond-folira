@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'; // Importa useEffect y useState
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const Comunidad = ({ authUser }) => {
   const [autores, setAutores] = useState([]); // Estado para manejar los autores

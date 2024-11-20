@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const usePosts = (id) => {
   return useQuery({

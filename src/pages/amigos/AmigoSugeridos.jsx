@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'; 
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const AmigoSugeridos = () => {
     const [amigos, setAmigos] = useState([]); // Estado para manejar los amigos

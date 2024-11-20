@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'; // Importa usePara
 import { useQuery } from '@tanstack/react-query';
 import { BsArrowLeft, BsEye, BsEyeSlash, BsStar, BsStarFill } from 'react-icons/bs';
 import { FaTrash } from 'react-icons/fa';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const FichaTecnicaAutor = () => {
   const { id: autorId } = useParams(); // Obtiene el id desde la URL

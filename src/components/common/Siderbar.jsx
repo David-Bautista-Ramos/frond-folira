@@ -8,7 +8,7 @@ import {  BiLogOut, BiSolidFolder } from "react-icons/bi";
 import { GiFeather, GiOpenBook } from "react-icons/gi";
 import Folira_general from "../../assets/img/Folira_general.svg";
 import { useRef } from "react";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 
 const Sidebar = () => {

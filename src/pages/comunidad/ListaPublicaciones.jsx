@@ -6,7 +6,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import ModalDenuncia from "../../components/common/DenunciaModal";
 import { formatPostDate } from "../../utils/date";
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const ListaPublicaciones = ({ posts, esAdmin, esMiembro }) => {
   const queryClient = useQueryClient();

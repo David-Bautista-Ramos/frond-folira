@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/img/Folira_logo.png'
 import toast from 'react-hot-toast';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const RecuperarContrasena = () => {
     const [correo, setCorreo] = useState('');

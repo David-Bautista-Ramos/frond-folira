@@ -4,7 +4,7 @@ import { BsStarFill, BsStar, BsEye, BsEyeSlash, BsArrowLeft } from 'react-icons/
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash } from 'react-icons/fa';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const FichaTecnicaLibro = () => {
   const { id: libroId } = useParams(); // Obtiene el id desde la URL

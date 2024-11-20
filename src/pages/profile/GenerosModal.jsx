@@ -1,5 +1,5 @@
 import{ useEffect, useState } from 'react';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const GenerosModal = ({ isOpen, onClose }) => {
     const [generos, setGeneros] = useState([]);

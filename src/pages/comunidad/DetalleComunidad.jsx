@@ -9,7 +9,7 @@ import usePosts from '../../hooks/usePost';
 import ListaPublicaciones from './ListaPublicaciones';
 import EmojiPicker from 'emoji-picker-react';
 import ModalMiembrosComunidad from './ModalMiembros';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const DetallesComunidad = () => {
   const { id } = useParams();

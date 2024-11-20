@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from "@tanstack/react-query";
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 
 const LibroSugerido = () => {

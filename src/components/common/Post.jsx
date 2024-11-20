@@ -13,7 +13,7 @@ import ModalDenuncia from "./DenunciaModal";
 import LoadingSpinner from "./LoadingSpinner";
 import { formatPostDate } from "../../utils/date";
 
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const Post = ({ post }) => {
   const [comentarios, setComentarios] = useState("");

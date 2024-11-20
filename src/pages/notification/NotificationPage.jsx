@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { FaUser, FaHeart, FaTrash, FaTriangleExclamation, FaRegMessage, FaArrowRightToCity } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const NotificationPage = () => {
   const queryClient = useQueryClient(); 

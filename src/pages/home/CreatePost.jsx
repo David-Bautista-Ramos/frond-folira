@@ -5,7 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import EmojiPicker from 'emoji-picker-react'; // Importar EmojiPicker
 import toast from 'react-hot-toast';
-const API_URL = "https://backendfoli-production.up.railway.app"; 
+const API_URL = "https://backendfoli.onrender.com"; 
 
 const CreatePost = () => {
 	const [contenido, setContenido] = useState("");
