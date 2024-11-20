@@ -31,8 +31,11 @@ const LoginPage = () => {
                 });
 
                 const data = await res.json();
-
-                if (!res.ok) {
+                // Si la respuesta tiene el token, lo guardamos en localStorage
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
+               if (!res.ok) {
                     throw new Error(data.error || "algo salió mal");
                 }
             } catch (error) {
