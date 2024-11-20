@@ -24,6 +24,7 @@ const LoginPage = () => {
             try {
                 const res = await fetch(`${API_URL}/api/auth/login`, {
                     method: "POST",
+                    credentials: "include", // Permite el envío de cookies
                     headers: {
                         "Content-Type": "application/json",
                     },
